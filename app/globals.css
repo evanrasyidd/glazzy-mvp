@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GLAZZY — Design Tokens (Tailwind v4 @theme)
+   ============================================================ */
+
+@theme {
+  /* Brand Colors */
+  --color-glaze-pink:   #B5338A;
+  --color-burnt-sugar:  #D64F1A;
+  --color-lemon-curd:   #F5C842;
+  --color-midnight:     #1A1A2E;
+  --color-cream:        #FFF4E6;
+  --color-card:         #FFFFFF;
+  --color-border:       #F0D8C0;
+
+  /* Typography */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body:    var(--font-dm-sans), system-ui, sans-serif;
+
+  /* Border Radius */
+  --radius-card: 10px;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px 0 rgb(0 0 0 / 0.06);
+  --shadow-card-hover: 0 8px 32px 0 rgb(0 0 0 / 0.12);
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Typography Defaults
+   ============================================================ */
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+/* ============================================================
+   Scrollbar (subtle, sesuai brand)
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-glaze-pink);
+}
+
+/* ============================================================
+   Focus Visible — Aksesibilitas
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-glaze-pink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Accent Bar — Strip pink tipis 3px sebagai section divider
+   ============================================================ */
+
+.accent-bar {
+  display: block;
+  width: 48px;
+  height: 3px;
+  background-color: var(--color-glaze-pink);
+  border-radius: 99px;
+}
+
+/* ============================================================
+   Card defaults
+   ============================================================ */
+
+.glazzy-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.glazzy-card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================================
+   Placeholder area (untuk aset gambar yang belum ada)
+   ============================================================ */
+
+.img-placeholder {
+  background-color: var(--color-cream);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-border);
+}
+
+/* ============================================================
+   Utility — will-change hanya untuk elemen yang dianimasikan
+   ============================================================ */
+
+.animate-spin-hover {
+  will-change: transform;
+}
